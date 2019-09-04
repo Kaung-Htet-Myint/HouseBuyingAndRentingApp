@@ -8,20 +8,9 @@ import com.example.housebuyingandrentingapp.adapters.TopCollectionAdapter;
 import com.example.housebuyingandrentingapp.data.model.EventModel;
 import com.example.housebuyingandrentingapp.data.vos.HouseRentingVO;
 import com.example.housebuyingandrentingapp.delegates.EventItemDelegate;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Adapter;
 
 import java.util.List;
 
@@ -54,12 +43,12 @@ public class MainActivity extends BaseActivity implements EventItemDelegate {
         houseModel.getEvent(new EventModel.GetEventFromDataLayerDelegate() {
             @Override
             public void onSuccess(List<HouseRentingVO> event) {
-
+                adapter.setNewData(event);
             }
 
             @Override
             public void onFailure(String errorMessage) {
-
+                showIndefiniteSnackBar(errorMessage);
             }
         });
 
@@ -67,9 +56,9 @@ public class MainActivity extends BaseActivity implements EventItemDelegate {
 
     @Override
     public void onTapEventItem() {
-        /*Intent intent = new Intent(getApplicationContext(),DeatailActivity.class);
+        /*Intent intent = new Intent(getApplicationContext(),DetailActivity.class);
         startActivity(intent);*/
 
-        startActivity(new Intent(this,DeatailActivity.class));
+        startActivity(new Intent(this, DetailActivity.class));
     }
 }

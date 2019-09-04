@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<com.example.housebuyingandrentingapp.activities.HouseDetailsImageViewItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_detail_west_minister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:src="@drawable/west_minster_london"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
 
-</LinearLayout>
+</com.example.housebuyingandrentingapp.activities.HouseDetailsImageViewItem>

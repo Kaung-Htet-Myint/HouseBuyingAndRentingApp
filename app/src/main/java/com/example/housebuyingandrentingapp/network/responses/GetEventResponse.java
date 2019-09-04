@@ -1,6 +1,8 @@
 package com.example.housebuyingandrentingapp.network.responses;
 
+import com.example.housebuyingandrentingapp.data.model.EventModel;
 import com.example.housebuyingandrentingapp.data.vos.HouseRentingVO;
+import com.example.housebuyingandrentingapp.utils.HouseRentingConstants;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -38,6 +40,11 @@ public class GetEventResponse {
     public void setHouseRentingList(List<HouseRentingVO> houseRentingList) {
         this.houseRentingList = houseRentingList;
     }
+
+    public Boolean isResponseOK(){
+        return code == HouseRentingConstants.CODE_RESPONSE_OK && houseRentingList != null;
+    }
+
 
 
 }

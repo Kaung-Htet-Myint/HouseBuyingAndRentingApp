@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
@@ -17,14 +16,23 @@
             android:layout_height="299dp"
             app:contentScrim="@android:color/white">
 
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vp_details_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="pin">
+
+            </androidx.viewpager.widget.ViewPager>
+
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:title=""
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                app:title="" />
             ​
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -33,24 +41,24 @@
                     android:id="@+id/iv_back_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_chevron_left_black_24dp"
+                    android:layout_marginStart="@dimen/margin_medium"
                     android:layout_marginTop="@dimen/margin_large"
-                    android:layout_marginStart="@dimen/margin_medium"/>
+                    android:src="@drawable/ic_chevron_left_black_24dp" />
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/cv_search"
                     android:layout_width="318dp"
                     android:layout_height="wrap_content"
-                    android:layout_toEndOf="@+id/iv_back_button"
                     android:layout_marginStart="@dimen/margin_medium_2"
-                    android:layout_marginTop="@dimen/margin_medium_2">
+                    android:layout_marginTop="@dimen/margin_medium_2"
+                    android:layout_toEndOf="@+id/iv_back_button">
 
                     <androidx.appcompat.widget.SearchView
                         android:id="@+id/search"
                         android:layout_width="288dp"
                         android:layout_height="wrap_content"
-                        app:queryHint="@string/search_box_hint"
-                        app:iconifiedByDefault="false" />
+                        app:iconifiedByDefault="false"
+                        app:queryHint="@string/search_box_hint" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -60,237 +68,30 @@
         ​
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.core.widget.NestedScrollView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-        <RelativeLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <!--<ImageView
-                    android:id="@+id/iv_back_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_chevron_left_black_24dp"
-                    android:layout_marginTop="@dimen/margin_large"
-                    android:layout_marginStart="@dimen/margin_medium"/>
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_search"
-                    android:layout_width="318dp"
-                    android:layout_height="wrap_content"
-                    android:layout_toEndOf="@+id/iv_back_button"
-                    android:layout_marginStart="@dimen/margin_medium_2"
-                    android:layout_marginTop="@dimen/margin_medium_2">
-
-                    <androidx.appcompat.widget.SearchView
-                        android:id="@+id/search"
-                        android:layout_width="288dp"
-                        android:layout_height="wrap_content"
-                        app:queryHint="@string/search_box_hint"
-                        app:iconifiedByDefault="false" />
-
-                </androidx.cardview.widget.CardView>-->
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cv_detail_info"
-                    android:layout_width="368dp"
-                    android:layout_height="300dp"
-                    android:layout_marginStart="@dimen/margin_medium_3"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="@dimen/margin_medium_3"
-                    app:cardCornerRadius="14dp">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
-
-                        <TextView
-                            android:id="@+id/tv_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/price"
-                            android:layout_marginStart="@dimen/margin_medium_3"
-                            android:layout_marginTop="@dimen/margin_large"
-                            android:textSize="@dimen/text_regular_3x"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_text"/>
-
-                        <com.google.android.material.floatingactionbutton.FloatingActionButton
-                            android:id="@+id/fab_near_me"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginTop="@dimen/margin_medium_2"
-                            android:layout_marginEnd="@dimen/margin_medium_3"
-                            android:src="@drawable/ic_near_me_white_24dp"
-                            android:backgroundTint="@color/colorPrimaryDark"/>
-
-
-                        <ImageView
-                            android:id="@+id/iv_location"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/fab_near_me"
-                            android:layout_marginStart="@dimen/margin_medium_3"
-                            android:layout_marginTop="@dimen/margin_medium_3"
-                            android:src="@drawable/ic_location_on_accent_32dp" />
-
-                        <TextView
-                            android:id="@+id/tv_location_west_minister"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@+id/iv_location"
-                            android:layout_marginStart="@dimen/margin_medium_2"
-                            android:layout_marginTop="@dimen/margin_small"
-                            android:layout_toEndOf="@+id/iv_location"
-                            android:text="@string/west_minster_london"
-                            android:textSize="@dimen/text_regular_2x"
-                            android:textStyle="bold" />
-
-
-                        <ImageView
-                            android:id="@+id/iv_square_ft"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/iv_location"
-                            android:layout_alignStart="@+id/iv_location"
-                            android:layout_marginStart="@dimen/margin_small"
-                            android:layout_marginTop="@dimen/margin_medium_2"
-                            android:src="@drawable/ic_web_accent_32dp" />
-
-                        <TextView
-                            android:id="@+id/tv_3200_sqft"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignStart="@+id/tv_location_west_minister"
-                            android:layout_alignTop="@+id/iv_square_ft"
-                            android:layout_toEndOf="@+id/iv_square_ft"
-                            android:text="@string/sq_ft"
-                            android:textSize="@dimen/text_regular_2x"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/iv_bed_rooms"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@+id/iv_square_ft"
-                            android:layout_marginStart="@dimen/margin_xxlarge"
-                            android:layout_toEndOf="@+id/tv_3200_sqft"
-                            android:src="@drawable/ic_local_hotel_accent_32dp" />
-
-                        <TextView
-                            android:id="@+id/tv_no_of_bed_rooms"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@+id/iv_bed_rooms"
-                            android:layout_marginStart="@dimen/margin_medium_3"
-                            android:layout_marginTop="@dimen/margin_small"
-                            android:layout_toEndOf="@+id/iv_bed_rooms"
-                            android:text="@string/no_of_bed_rooms"
-                            android:textSize="@dimen/text_regular_2x"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/iv_favourite"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/iv_square_ft"
-                            android:layout_alignStart="@+id/iv_location"
-                            android:layout_marginStart="@dimen/margin_small"
-                            android:layout_marginTop="@dimen/margin_medium_2"
-                            android:src="@drawable/ic_favorite_border_black_24dp" />
-
-                        <TextView
-                            android:id="@+id/tv_favourite"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignStart="@+id/tv_location_west_minister"
-                            android:layout_alignTop="@+id/iv_favourite"
-                            android:layout_toEndOf="@+id/iv_favourite"
-                            android:text="@string/no_of_favourite"
-                            android:textSize="@dimen/text_regular_2x"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:id="@+id/iv_review"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@+id/iv_favourite"
-                            android:layout_marginStart="@dimen/margin_xxlarge"
-                            android:layout_toEndOf="@+id/tv_3200_sqft"
-                            android:src="@drawable/ic_create_black_24dp" />
-
-                        <TextView
-                            android:id="@+id/tv_review"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignTop="@+id/iv_favourite"
-                            android:layout_marginStart="@dimen/margin_medium_3"
-                            android:layout_marginTop="@dimen/margin_small"
-                            android:layout_toEndOf="@+id/iv_review"
-                            android:text="@string/no_of_reviews"
-                            android:textSize="@dimen/text_regular_2x"
-                            android:textStyle="bold" />
-
-                        <View
-                            android:id="@+id/divider"
-                            android:layout_width="match_parent"
-                            android:layout_height="1.0dp"
-                            android:layout_below="@id/iv_favourite"
-                            android:layout_marginTop="@dimen/margin_medium_2"
-                            android:background="@color/divider"/>
-
-                        <TextView
-                            android:id="@+id/tv_see_review"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/see_review"
-                            android:layout_marginTop="@dimen/margin_xlarge"
-                            android:layout_below="@+id/divider"
-                            android:layout_marginStart="@dimen/margin_medium_3"
-                            android:textSize="@dimen/text_regular"
-                            android:textStyle="bold"
-                            android:textColor="@color/primary_text"/>
-
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/btn_see_photos"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/divider"
-                            android:layout_alignParentEnd="true"
-                            android:layout_marginTop="@dimen/margin_medium_2"
-                            android:layout_marginEnd="@dimen/margin_medium_2"
-                            android:text="@string/see_photos"
-                            android:textAllCaps="false"
-                            app:cornerRadius="18dp"
-                            android:backgroundTint="@color/icons"
-                            android:textColor="@color/colorPrimary"
-                            android:background="@drawable/border"/>
-
-
-
-                    </RelativeLayout>
-
-                </androidx.cardview.widget.CardView>
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginTop="144dp">
 
                 <TextView
                     android:id="@+id/tv_single_family_house"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/single_family_house"
-                    android:layout_below="@+id/cv_detail_info"
-                    android:layout_alignStart="@+id/cv_detail_info"
                     android:layout_marginTop="@dimen/margin_large"
+                    android:text="@string/single_family_house"
+                    android:textColor="@color/primary_text"
                     android:textSize="@dimen/text_regular_3x"
-                    android:textStyle="bold"
-                    android:textColor="@color/primary_text"/>
+                    android:textStyle="bold" />
 
 
                 <TextView
@@ -306,48 +107,226 @@
 
             </RelativeLayout>
 
+        </androidx.core.widget.NestedScrollView>
 
-            <LinearLayout
-                android:id="@+id/ll_add_favourite_and_book"
-                android:layout_width="340dp"
+        <LinearLayout
+            android:id="@+id/ll_add_favourite_and_book"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="@dimen/margin_medium_2"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_favourtie"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_weight="1"
+                android:backgroundTint="@color/icons"
+                android:text="@string/add_fav"
+                android:textAllCaps="false"
+                android:textColor="@color/primary_text"
+                app:cornerRadius="20dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_book_now"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:text="@string/book_now"
+                android:textAllCaps="false"
+                android:textColor="@color/icons"
+                app:cornerRadius="20dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_detail_info"
+        android:layout_width="368dp"
+        android:layout_height="300dp"
+        android:layout_marginStart="@dimen/margin_medium_3"
+        android:layout_marginEnd="@dimen/margin_medium_3"
+        app:cardCornerRadius="14dp"
+        app:layout_anchor="@id/appBarLayout"
+        app:layout_anchorGravity="bottom|center">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_price"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="@dimen/margin_medium_2"
-                android:orientation="horizontal"
-                android:weightSum="2">
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_large"
+                android:text="@string/price"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_regular_3x"
+                android:textStyle="bold" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_add_favourtie"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:text="@string/add_fav"
-                    android:textAllCaps="false"
-                    android:layout_marginStart="@dimen/margin_medium"
-                    android:backgroundTint="@color/icons"
-                    android:textColor="@color/primary_text"
-                    app:cornerRadius="20dp"
-                    android:layout_weight="1"/>
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fab_near_me"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_medium_3"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:src="@drawable/ic_near_me_white_24dp" />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btn_book_now"
-                    android:layout_width="0dp"
-                    android:layout_height="60dp"
-                    android:text="@string/book_now"
-                    android:layout_marginStart="@dimen/margin_medium_2"
-                    android:textAllCaps="false"
-                    android:backgroundTint="@color/colorPrimaryDark"
-                    android:textColor="@color/icons"
-                    app:cornerRadius="20dp"
-                    android:layout_weight="1"/>
 
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/iv_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fab_near_me"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_medium_3"
+                android:src="@drawable/ic_location_on_accent_32dp" />
+
+            <TextView
+                android:id="@+id/tv_location_west_minister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_location"
+                android:layout_marginStart="@dimen/margin_medium_2"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_toEndOf="@+id/iv_location"
+                android:text="@string/west_minster_london"
+                android:textSize="@dimen/text_regular_2x"
+                android:textStyle="bold" />
+
+
+            <ImageView
+                android:id="@+id/iv_square_ft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_location"
+                android:layout_alignStart="@+id/iv_location"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:src="@drawable/ic_web_accent_32dp" />
+
+            <TextView
+                android:id="@+id/tv_3200_sqft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/tv_location_west_minister"
+                android:layout_alignTop="@+id/iv_square_ft"
+                android:layout_toEndOf="@+id/iv_square_ft"
+                android:text="@string/sq_ft"
+                android:textSize="@dimen/text_regular_2x"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_bed_rooms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_square_ft"
+                android:layout_marginStart="@dimen/margin_xxlarge"
+                android:layout_toEndOf="@+id/tv_3200_sqft"
+                android:src="@drawable/ic_local_hotel_accent_32dp" />
+
+            <TextView
+                android:id="@+id/tv_no_of_bed_rooms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_bed_rooms"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_toEndOf="@+id/iv_bed_rooms"
+                android:text="@string/no_of_bed_rooms"
+                android:textSize="@dimen/text_regular_2x"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_square_ft"
+                android:layout_alignStart="@+id/iv_location"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:src="@drawable/ic_favorite_border_black_24dp" />
+
+            <TextView
+                android:id="@+id/tv_favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/tv_location_west_minister"
+                android:layout_alignTop="@+id/iv_favourite"
+                android:layout_toEndOf="@+id/iv_favourite"
+                android:text="@string/no_of_favourite"
+                android:textSize="@dimen/text_regular_2x"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_favourite"
+                android:layout_marginStart="@dimen/margin_xxlarge"
+                android:layout_toEndOf="@+id/tv_3200_sqft"
+                android:src="@drawable/ic_create_black_24dp" />
+
+            <TextView
+                android:id="@+id/tv_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/iv_favourite"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_toEndOf="@+id/iv_review"
+                android:text="@string/no_of_reviews"
+                android:textSize="@dimen/text_regular_2x"
+                android:textStyle="bold" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1.0dp"
+                android:layout_below="@id/iv_favourite"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:background="@color/divider" />
+
+            <TextView
+                android:id="@+id/tv_see_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider"
+                android:layout_marginStart="@dimen/margin_medium_3"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:text="@string/see_review"
+                android:textColor="@color/primary_text"
+                android:textSize="@dimen/text_regular"
+                android:textStyle="bold" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_see_photos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/divider"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/margin_medium_2"
+                android:layout_marginEnd="@dimen/margin_medium_2"
+                android:background="@drawable/border"
+                android:backgroundTint="@color/icons"
+                android:text="@string/see_photos"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary"
+                app:cornerRadius="18dp" />
 
         </RelativeLayout>
 
-    </androidx.core.widget.NestedScrollView>
-
-
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

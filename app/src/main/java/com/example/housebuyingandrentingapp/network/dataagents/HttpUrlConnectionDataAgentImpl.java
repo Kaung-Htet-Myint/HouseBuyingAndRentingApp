@@ -131,9 +131,16 @@ public class HttpUrlConnectionDataAgentImpl implements EventDataAgent{
         @Override
         protected void onPostExecute(GetEventResponse getEventsResponses) {
             super.onPostExecute(getEventsResponses);
-            /*if (getEventsResponses.getCode() != null){
 
-            }*/
+            if (getEventsResponses != null){
+                if (getEventsResponses.isResponseOK()){
+                    delegate.onSuccess(getEventsResponses.getHouseRentingList());
+                }else {
+                    delegate.onFailure(getEventsResponses.getMessage());
+                }
+            }else {
+                delegate.onFailure(HouseRentingConstants.ERROR_MESSAGE);
+            }
         }
     }
 

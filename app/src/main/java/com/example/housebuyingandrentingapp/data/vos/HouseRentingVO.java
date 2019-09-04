@@ -17,7 +17,7 @@ public class HouseRentingVO {
     private String description;
 
     @SerializedName("price")
-    private int price;
+    private float price;
 
     @SerializedName("address")
     private String address;
@@ -63,7 +63,7 @@ public class HouseRentingVO {
         this.description = description;
     }
 
-    public int getPrice() {
+    public float getPrice() {
         return price;
     }
 
