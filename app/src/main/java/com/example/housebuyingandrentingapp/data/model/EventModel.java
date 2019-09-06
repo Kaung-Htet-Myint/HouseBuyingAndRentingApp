@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface EventModel {
     void getEvent(GetEventFromDataLayerDelegate delegate);
+    HouseRentingVO findHouseById(int houseId);
 
     interface GetEventFromDataLayerDelegate{
         void onSuccess(List<HouseRentingVO> event);

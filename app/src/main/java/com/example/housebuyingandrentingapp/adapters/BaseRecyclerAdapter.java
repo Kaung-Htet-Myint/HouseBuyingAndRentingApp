@@ -5,10 +5,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.housebuyingandrentingapp.views.holder.BaseViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseRecyclerAdapter <T extends BaseViewHolder<w>, w>extends RecyclerView.Adapter<T> {
     private List<w> mData;
+
+    public BaseRecyclerAdapter() {
+        this.mData = new ArrayList<>();
+    }
 
     @Override
     public void onBindViewHolder(@NonNull T holder, int position) {

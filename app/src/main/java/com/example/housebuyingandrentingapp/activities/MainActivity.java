@@ -14,7 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends BaseActivity implements EventItemDelegate {
+
+    @BindView(R.id.rv_top_collection)
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +38,10 @@ public class MainActivity extends BaseActivity implements EventItemDelegate {
             }
         });*/
 
+        ButterKnife.bind(this);
+
         final TopCollectionAdapter adapter = new TopCollectionAdapter(this);
 
-        RecyclerView recyclerView = findViewById(R.id.rv_top_collection);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false));
         recyclerView.setAdapter(adapter);
 
@@ -55,10 +62,10 @@ public class MainActivity extends BaseActivity implements EventItemDelegate {
     }
 
     @Override
-    public void onTapEventItem() {
-        /*Intent intent = new Intent(getApplicationContext(),DetailActivity.class);
-        startActivity(intent);*/
+    public void onTapEventItem(int houseId) {
+        Intent intent = DetailActivity.newIntent(getApplicationContext(),houseId);
+        startActivity(intent);
 
-        startActivity(new Intent(this, DetailActivity.class));
+        //startActivity(new Intent(this, DetailActivity.class));
     }
 }

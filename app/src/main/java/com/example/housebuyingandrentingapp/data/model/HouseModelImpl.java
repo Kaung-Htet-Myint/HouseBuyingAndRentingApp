@@ -44,4 +44,12 @@ public class HouseModelImpl extends BaseModel implements EventModel{
             }
         });
     }
+
+    @Override
+    public HouseRentingVO findHouseById(int houseId) {
+        HouseRentingVO houseVO = houseRentingDataRepository.get(houseId);
+        return houseVO;
+    }
+
+
 }

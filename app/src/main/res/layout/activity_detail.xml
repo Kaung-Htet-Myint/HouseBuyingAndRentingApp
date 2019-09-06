@@ -193,7 +193,7 @@
                 android:src="@drawable/ic_location_on_accent_32dp" />
 
             <TextView
-                android:id="@+id/tv_location_west_minister"
+                android:id="@+id/tv_location_west_minister_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/iv_location"
@@ -216,10 +216,10 @@
                 android:src="@drawable/ic_web_accent_32dp" />
 
             <TextView
-                android:id="@+id/tv_3200_sqft"
+                android:id="@+id/tv_3200_sqft_details"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/tv_location_west_minister"
+                android:layout_alignStart="@+id/tv_location_west_minister_details"
                 android:layout_alignTop="@+id/iv_square_ft"
                 android:layout_toEndOf="@+id/iv_square_ft"
                 android:text="@string/sq_ft"
@@ -232,7 +232,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/iv_square_ft"
                 android:layout_marginStart="@dimen/margin_xxlarge"
-                android:layout_toEndOf="@+id/tv_3200_sqft"
+                android:layout_toEndOf="@+id/tv_3200_sqft_details"
                 android:src="@drawable/ic_local_hotel_accent_32dp" />
 
             <TextView
@@ -261,7 +261,7 @@
                 android:id="@+id/tv_favourite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/tv_location_west_minister"
+                android:layout_alignStart="@+id/tv_location_west_minister_details"
                 android:layout_alignTop="@+id/iv_favourite"
                 android:layout_toEndOf="@+id/iv_favourite"
                 android:text="@string/no_of_favourite"
@@ -274,7 +274,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/iv_favourite"
                 android:layout_marginStart="@dimen/margin_xxlarge"
-                android:layout_toEndOf="@+id/tv_3200_sqft"
+                android:layout_toEndOf="@+id/tv_3200_sqft_details"
                 android:src="@drawable/ic_create_black_24dp" />
 
             <TextView

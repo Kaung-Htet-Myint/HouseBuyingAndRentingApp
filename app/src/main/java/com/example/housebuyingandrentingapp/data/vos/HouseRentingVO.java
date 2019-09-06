@@ -7,7 +7,7 @@ public class HouseRentingVO {
     @SerializedName("id")
     private int id;
 
-    @SerializedName("message")
+    @SerializedName("house_image_url")
     private String houseImageUrl;
 
     @SerializedName("name")
